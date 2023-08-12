@@ -1,0 +1,83 @@
+{% load static %}
+
+
+<!--
+Author: Colorlib
+Author URL: https://colorlib.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>Profile Form</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link href="{% static '/css/jay.css' %}" rel="stylesheet" type="text/css" media="all" />
+<!-- //Custom Theme files -->
+<!-- web font -->
+<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+<!-- //web font -->
+</head>
+<body>
+	<!-- main -->
+    
+	<div class="main-w3layouts wrapper">
+		<h1>Profile Form</h1>
+        <h4 style="color: red;">{{msg}}</h4>
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+				<form action="{% url 'updateprofile' pk=request.session.id %}" method="post">
+                    {% csrf_token %}
+                    <h4 style="color: red;">{{msg}}</h4>
+                    
+                    <input class="text" type="text" name="firstname" placeholder="Firstname" required="" value="{{can.firstname}}"><br>
+                    <input class="text" type="text" name="lastname" placeholder="Lastname" required="" value="{{can.lastname}}"><br>
+                    
+                    <input type="text" name="jobtype" id="" placeholder="Job Type" value="{{can.job_type}}"><br>
+                    <input type="text" name="category" id="" placeholder="Job Category" value="{{can.jobcategory}}"><br>
+                     
+					<input type="text" name="state" id="" placeholder="State" value="{{can.state}}"><br>
+					<input type="text" name="city" id="" placeholder="City" value="{{can.city}}"><br>
+					<input type="text" name="minsalary" id="" placeholder="Min_salary" value="{{can.min_salary}}"><br>
+					<input type="text" name="maxsalary" id="" placeholder="Max_salary" value="{{can.max_salary}}"><br>
+					<input type="text" name="website" id="" placeholder="Website" value="{{can.website}}"><br>
+				    <input class="text email" type="text" name="education" placeholder="Highest Education" required="" value="{{can.highestedu}}"><br>
+					<input class="text" type="password" name="experience" placeholder="Experience" required="" value="{{can.experience}}"><br>
+					<input class="text" type="password" name="shift" placeholder="Shift" required="" value="{{can.shift}}"><br>
+                         
+					<input type="text" name="email" id="" placeholder="Email" value="{{user.email}}"><br>
+                    <input type="text" name="contact" id="" placeholder="Phone Number" value="{{can.contact}}"><br>
+					 
+                    <input type="text" name="gender" id="" placeholder="Gender" value="{{can.gender}}"><br>
+                  
+                    <input type="text" name="description" id="" placeholder="Job Description" value="{{can.jobdescription}}"><br>
+					
+					<input type="submit" value="SIGNUP">
+				</form>
+				 
+			</div>
+		</div>
+		<!-- copyright -->
+		<div class="colorlibcopy-agile">
+			<p>© 2018 Colorlib Signup Form. All rights reserved | Design by <a href="https://colorlib.com/" target="_blank">Colorlib</a></p>
+		</div>
+		<!-- //copyright -->
+		<ul class="colorlib-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<!-- //main -->
+</body>
+</html>

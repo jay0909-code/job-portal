@@ -1,0 +1,118 @@
+{% extends "jagruti/base.html" %}
+{% block content %}
+
+{% load static %}
+
+
+ 
+    <body class="bg-primary">
+        <div id="layoutAuthentication">
+            <div id="layoutAuthentication_content">
+                <main>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-7">
+                                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Candidate Apply Form</h3></div>
+                                    <div class="card-body">
+                                        {% if user %}
+                                        {% if cand %}
+                                        {% if job %}
+                                        <form action="{% url 'applyjob' pk=job.id %} " method="post">
+                                            {% csrf_token %}
+
+                                            {% if msg %}
+
+                                                <h4 style="color:green">{{msg}}</h4>
+                                            {% endif %}
+                                            <div class="row mb-3">
+                                                <div class="col-md-6">
+                                                    <div class="form-floating mb-3 mb-md-0">
+                                                        <input class="form-control" id="inputFirstName" type="text" name="firstname" value="{{cand.firstname}}" placeholder="Enter your first name" />
+                                                        <label for="inputFirstName">First name</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-floating">
+                                                        <input class="form-control" id="inputLastName" type="text" name="lastname" value="{{cand.lastname}}" placeholder="Enter your last name" />
+                                                        <label for="inputLastName">Last name</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-floating">
+                                                    <input class="form-control" id="inputLastName" type="text" name="jobname" value="{{job.jobname}}" placeholder="Enter your last name" />
+                                                    <label for="inputLastName">Job name</label>
+                                                </div>
+                                            </div><br>
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputEmail" type="email" name="email" value="{{request.session.email}}" placeholder="name@example.com" />
+                                                <label for="inputEmail">Email address</label>
+                                            </div>
+                                           
+                                            <div class="row mb-3">
+                                                <div class="col-md-6">
+                                                    <div class="form-floating mb-3 mb-md-0">
+                                                        <input class="form-control" id="inputPassword" type="text" placeholder="State" name="state"  value="{{cand.state}}" />
+                                                        <label for="inputPassword">State</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-floating mb-3 mb-md-0">
+                                                        <input class="form-control" id="inputPasswordConfirm" type="text" placeholder="State" name="city" value="{{cand.city}}" />
+                                                        <label for="inputPasswordConfirm">City</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-6">
+                                                    <div class="form-floating mb-3 mb-md-0">
+                                                        <input class="form-control" id="inputPassword" type="text" placeholder="State" name="maxsalary"  value=" " />
+                                                        <label for="inputPassword">Max_salary</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-floating mb-3 mb-md-0">
+                                                        <input class="form-control" id="inputPasswordConfirm" type="text" placeholder="State" name="minsalary" value=" " />
+                                                        <label for="inputPasswordConfirm">Min_salary</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputEmail" type="text" placeholder="Company Contact" name="education" value="" />
+                                                <label for="inputEmail">Highest Education</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputEmail" type="text" placeholder="Company Website" name="experience" value="" />
+                                                <label for="inputEmail">Experience</label>
+                                            </div>
+
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputEmail" type="text" placeholder="Company Website" name="website" value=" " />
+                                                <label for="inputEmail">Protfolio Website</label>
+                                            </div>
+                                            
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputEmail" type="text" placeholder="Company Website" name="gender" value=" " />
+                                                <label for="inputEmail">Gender</label>
+                                            </div>
+
+                                             <div>
+                                                <input type="submit" value="save">
+                                             </div>
+                                        </form>
+                                        {% endif %}
+                                        {% endif %}
+                                        {% endif %}
+                                    </div>
+                                    <div class="card-footer text-center py-3">
+                                        <div class="small"><a href="login.html">Have an account? Go to login</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+{% endblock %}
+             
